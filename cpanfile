@@ -1,4 +1,4 @@
-requires "Dist::Zilla" => "0";
+requires "Dist::Zilla" => "4";
 requires "Dist::Zilla::Role::PrereqSource" => "0";
 requires "Dist::Zilla::Util::AuthorDeps" => "0";
 requires "Moose" => "0";
