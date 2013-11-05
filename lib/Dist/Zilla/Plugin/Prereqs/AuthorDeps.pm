@@ -90,7 +90,7 @@ sub register_prereqs {
 
 1;
 
-=for Pod::Coverage BUILD
+=for Pod::Coverage mvp_multivalue_args register_prereqs
 
 =head1 SYNOPSIS
 
