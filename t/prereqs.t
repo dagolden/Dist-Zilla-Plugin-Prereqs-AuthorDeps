@@ -24,7 +24,7 @@ my $dz_version = Dist::Zilla->VERSION;
 
     my $expected = {
         'Dist::Zilla'                              => $dz_version,
-        'Dist::Zilla::PluginBundle::Basic'         => 5,
+        'Dist::Zilla::PluginBundle::Basic'         => 4,
         'Dist::Zilla::Plugin::AutoPrereqs'         => 0,
         'Dist::Zilla::Plugin::MetaJSON'            => 0,
         'Dist::Zilla::Plugin::Prereqs::AuthorDeps' => 0,

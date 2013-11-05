@@ -2,6 +2,10 @@ Revision history for Dist-Zilla-Plugin-Prereqs-AuthorDeps
 
 {{$NEXT}}
 
+    [FIXED]
+
+    - Fixed tests for old versions of Dist::Zilla
+
 0.001     2013-11-04 21:04:57 America/New_York
 
     - First release

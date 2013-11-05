@@ -10,7 +10,7 @@ use Moose;
 use MooseX::Types::Moose qw( HashRef ArrayRef Str );
 
 use Dist::Zilla::Util::AuthorDeps;
-use Dist::Zilla;
+use Dist::Zilla 4;
 use Path::Class;
 
 with 'Dist::Zilla::Role::PrereqSource';
