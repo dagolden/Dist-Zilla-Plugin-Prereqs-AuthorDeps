@@ -28,6 +28,7 @@ my $dz_version = Dist::Zilla->VERSION;
         'Dist::Zilla::Plugin::AutoPrereqs'         => 0,
         'Dist::Zilla::Plugin::MetaJSON'            => 0,
         'Dist::Zilla::Plugin::Prereqs::AuthorDeps' => 0,
+        # removed: Dist::Zilla::Plugin::RemovePrereqs
     };
 
     is_deeply( $prereqs->requirements_for(qw/develop requires/)->as_string_hash,
