@@ -11,7 +11,7 @@ use MooseX::Types::Moose qw( HashRef ArrayRef Str );
 
 use Dist::Zilla::Util::AuthorDeps;
 use Dist::Zilla 4;
-use Path::Class;
+use Path::Class; # because DZU::AuthorDeps requires Path::Class objects
 
 with 'Dist::Zilla::Role::PrereqSource';
 
