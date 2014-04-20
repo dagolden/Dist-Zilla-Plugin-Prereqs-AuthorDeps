@@ -15,6 +15,9 @@ on 'test' => sub {
   requires "File::Spec::Functions" => "0";
   requires "List::Util" => "0";
   requires "Path::Tiny" => "0";
+  requires "Test::DZil" => "0";
+  requires "Test::Deep" => "0";
+  requires "Test::Deep::JSON" => "0";
   requires "Test::More" => "0.96";
 };
 
