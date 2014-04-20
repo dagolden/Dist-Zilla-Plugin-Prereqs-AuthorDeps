@@ -23,6 +23,7 @@ my $dz_version = Dist::Zilla->VERSION;
     my $prereqs = $meta->effective_prereqs;
 
     my $expected = {
+        'Devel::Foo'                               => 0.123,
         'Dist::Zilla'                              => $dz_version,
         'Dist::Zilla::PluginBundle::Basic'         => 4,
         'Dist::Zilla::Plugin::AutoPrereqs'         => 0,
