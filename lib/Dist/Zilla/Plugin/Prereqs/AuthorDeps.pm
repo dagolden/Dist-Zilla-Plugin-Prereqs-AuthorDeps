@@ -82,8 +82,10 @@ sub register_prereqs {
         $zilla->register_prereqs( { phase => $phase, type => $relation }, $mod, $version );
     }
 
-    $zilla->register_prereqs( { phase => $phase, type => $relation },
-        "Dist::Zilla", Dist::Zilla->VERSION, );
+    $zilla->register_prereqs(
+        { phase => $phase, type => $relation },
+        "Dist::Zilla", int( Dist::Zilla->VERSION ),
+    );
 
     return;
 }

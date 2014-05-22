@@ -10,7 +10,7 @@ use CPAN::Meta;
 require Dist::Zilla; # for VERSION
 
 my $root       = 'corpus/DZ';
-my $dz_version = Dist::Zilla->VERSION;
+my $dz_version = int( Dist::Zilla->VERSION );
 
 {
     my $tzil = Dist::Zilla::Tester->from_config( { dist_root => $root }, );

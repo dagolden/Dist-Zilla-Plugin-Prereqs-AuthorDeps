@@ -36,7 +36,7 @@ cmp_deeply(
                     develop => {
                         recommends => {
                             'Devel::Foo'                               => 0.123,
-                            'Dist::Zilla'                              => Dist::Zilla->VERSION,
+                            'Dist::Zilla'                              => int( Dist::Zilla->VERSION ),
                             'Dist::Zilla::Plugin::GatherDir'           => 0,
                             'Dist::Zilla::Plugin::MetaJSON'            => 0,
                             'Dist::Zilla::Plugin::Prereqs::AuthorDeps' => 0,
