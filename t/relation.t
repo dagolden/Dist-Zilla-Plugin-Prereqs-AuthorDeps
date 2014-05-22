@@ -13,34 +13,39 @@ my $tzil = Builder->from_config(
     {
         add_files => {
             path(qw(source dist.ini)) => simple_ini(
-                [ GatherDir => ],
-                [ MetaJSON => ],
+                [ GatherDir             => ],
+                [ MetaJSON              => ],
                 [ 'Prereqs::AuthorDeps' => { relation => 'recommends' } ],
-            ) . "\n\n; authordep Devel::Foo = 0.123\n",
+              )
+              . "\n\n; authordep Devel::Foo = 0.123\n",
             path(qw(source lib Foo.pm)) => "package Foo;\n1;\n",
         },
     },
 );
 
 $tzil->build;
-my $json = path($tzil->tempdir, qw(build META.json))->slurp_raw;
+my $json = path( $tzil->tempdir, qw(build META.json) )->slurp_raw;
 
 cmp_deeply(
     $json,
-    json(superhashof({
-        dynamic_config => 0,
-        prereqs => {
-            develop => {
-                recommends => {
-                    'Devel::Foo'                               => 0.123,
-                    'Dist::Zilla'                              => Dist::Zilla->VERSION,
-                    'Dist::Zilla::Plugin::GatherDir'           => 0,
-                    'Dist::Zilla::Plugin::MetaJSON'            => 0,
-                    'Dist::Zilla::Plugin::Prereqs::AuthorDeps' => 0,
+    json(
+        superhashof(
+            {
+                dynamic_config => 0,
+                prereqs        => {
+                    develop => {
+                        recommends => {
+                            'Devel::Foo'                               => 0.123,
+                            'Dist::Zilla'                              => Dist::Zilla->VERSION,
+                            'Dist::Zilla::Plugin::GatherDir'           => 0,
+                            'Dist::Zilla::Plugin::MetaJSON'            => 0,
+                            'Dist::Zilla::Plugin::Prereqs::AuthorDeps' => 0,
+                        },
+                    },
                 },
-            },
-        },
-    })),
+            }
+        )
+    ),
     'authordeps added as develop recommends',
 );
 
