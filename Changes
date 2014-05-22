@@ -2,6 +2,10 @@ Revision history for Dist-Zilla-Plugin-Prereqs-AuthorDeps
 
 {{$NEXT}}
 
+    [TESTS]
+
+    - Improved test coverage
+
 0.002     2013-11-04 23:02:57 America/New_York
 
     [FIXED]
