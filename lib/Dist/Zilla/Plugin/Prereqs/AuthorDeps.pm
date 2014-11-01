@@ -9,9 +9,8 @@ our $VERSION = '0.004';
 use Moose;
 use MooseX::Types::Moose qw( HashRef ArrayRef Str );
 
-use Dist::Zilla::Util::AuthorDeps;
+use Dist::Zilla::Util::AuthorDeps 5.021;
 use Dist::Zilla 4;
-use Path::Class; # because DZU::AuthorDeps requires Path::Class objects
 
 with 'Dist::Zilla::Role::PrereqSource';
 
@@ -74,7 +73,7 @@ sub register_prereqs {
     my $phase    = $self->phase;
     my $relation = $self->relation;
 
-    my $authordeps = Dist::Zilla::Util::AuthorDeps::extract_author_deps( dir('.') );
+    my $authordeps = Dist::Zilla::Util::AuthorDeps::extract_author_deps( '.' );
 
     for my $req (@$authordeps) {
         my ( $mod, $version ) = each %$req;
