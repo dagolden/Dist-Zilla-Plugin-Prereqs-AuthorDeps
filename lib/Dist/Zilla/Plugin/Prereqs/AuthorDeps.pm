@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::Prereqs::AuthorDeps;
 # ABSTRACT: Add Dist::Zilla authordeps to META files as develop prereqs
-# VERSION
+our $VERSION = '0.004';
 
 use Moose;
 use MooseX::Types::Moose qw( HashRef ArrayRef Str );
