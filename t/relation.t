@@ -40,6 +40,9 @@ cmp_deeply(
                             'Dist::Zilla::Plugin::GatherDir'           => 0,
                             'Dist::Zilla::Plugin::MetaJSON'            => 0,
                             'Dist::Zilla::Plugin::Prereqs::AuthorDeps' => 0,
+                            (
+                                eval { Dist::Zilla->VERSION(5.038); 1 } ? ( 'Software::License::Perl_5' => 0 ) : ()
+                            )
                         },
                     },
                 },
