@@ -32,8 +32,11 @@ my $dz_version = int( Dist::Zilla->VERSION );
         # removed: Dist::Zilla::Plugin::RemovePrereqs
     };
 
-    is_deeply( $prereqs->requirements_for(qw/develop requires/)->as_string_hash,
-        $expected, "develop requires" );
+    $expected->{"Software::License::Perl_5"} = 0
+      if eval { Dist::Zilla->VERSION(5.038); 1 };
+
+    my $reqs = $prereqs->requirements_for(qw/develop requires/)->as_string_hash;
+    is_deeply( $reqs, $expected, "develop requires" ) or diag explain $reqs;
 }
 
 done_testing;

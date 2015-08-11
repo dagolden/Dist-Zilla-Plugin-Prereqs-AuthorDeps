@@ -2,6 +2,10 @@ Revision history for Dist-Zilla-Plugin-Prereqs-AuthorDeps
 
 {{$NEXT}}
 
+    [FIXES]
+
+    - Fixes failing test under Dist::Zilla 5.038 or later
+
 0.004     2014-11-04 11:03:34-05:00 America/New_York
 
     [PREREQS]
