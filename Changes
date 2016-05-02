@@ -7,6 +7,11 @@ Revision history for Dist-Zilla-Plugin-Prereqs-AuthorDeps
     - Capped max Dist::Zilla prereq added to 5 until Dist::Zilla v6 is
       stable.
 
+    [FIXES]
+
+    - Drop vestigial use of Path::Class API to avoid Dist::Zilla 6
+      deprecation warnings.
+
 0.005     2015-08-11 11:39:40-04:00 America/New_York
 
     [FIXES]
