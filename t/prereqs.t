@@ -4,13 +4,14 @@ use warnings;
 use Test::More 0.96;
 
 use Dist::Zilla::Tester;
+use List::Util qw/min/;
 use Path::Tiny;
 use CPAN::Meta;
 
 require Dist::Zilla; # for VERSION
 
-my $root       = 'corpus/DZ';
-my $dz_version = int( Dist::Zilla->VERSION );
+my $root = 'corpus/DZ';
+my $dz_version = min( 5, int( Dist::Zilla->VERSION ) );
 
 {
     my $tzil = Dist::Zilla::Tester->from_config( { dist_root => $root }, );

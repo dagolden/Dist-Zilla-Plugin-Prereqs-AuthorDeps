@@ -3,10 +3,15 @@ use warnings FATAL => 'all';
 
 use Test::More;
 
+use List::Util qw/min/;
 use Path::Tiny;
 use Test::Deep;
 use Test::Deep::JSON;
 use Test::DZil;
+
+require Dist::Zilla; # for VERSION
+
+my $dz_version = min( 5, int( Dist::Zilla->VERSION ) );
 
 my $tzil = Builder->from_config(
     { dist_root => 't/does-not-exist' },
@@ -36,7 +41,7 @@ cmp_deeply(
                     develop => {
                         recommends => {
                             'Devel::Foo'                               => 0.123,
-                            'Dist::Zilla'                              => int( Dist::Zilla->VERSION ),
+                            'Dist::Zilla'                              => $dz_version,
                             'Dist::Zilla::Plugin::GatherDir'           => 0,
                             'Dist::Zilla::Plugin::MetaJSON'            => 0,
                             'Dist::Zilla::Plugin::Prereqs::AuthorDeps' => 0,

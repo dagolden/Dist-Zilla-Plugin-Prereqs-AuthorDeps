@@ -19,8 +19,10 @@ my %WriteMakefileArgs = (
     "Dist::Zilla" => 4,
     "Dist::Zilla::Role::PrereqSource" => 0,
     "Dist::Zilla::Util::AuthorDeps" => "5.021",
+    "List::Util" => 0,
     "Moose" => 0,
     "MooseX::Types::Moose" => 0,
+    "constant" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -50,6 +52,7 @@ my %FallbackPrereqs = (
   "Dist::Zilla::Util::AuthorDeps" => "5.021",
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
+  "List::Util" => 0,
   "Moose" => 0,
   "MooseX::Types::Moose" => 0,
   "Path::Tiny" => 0,
@@ -57,6 +60,7 @@ my %FallbackPrereqs = (
   "Test::Deep" => 0,
   "Test::Deep::JSON" => 0,
   "Test::More" => "0.96",
+  "constant" => 0,
   "strict" => 0,
   "warnings" => 0
 );

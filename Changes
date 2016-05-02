@@ -2,6 +2,11 @@ Revision history for Dist-Zilla-Plugin-Prereqs-AuthorDeps
 
 {{$NEXT}}
 
+    [CHANGED]
+
+    - Capped max Dist::Zilla prereq added to 5 until Dist::Zilla v6 is
+      stable.
+
 0.005     2015-08-11 11:39:40-04:00 America/New_York
 
     [FIXES]

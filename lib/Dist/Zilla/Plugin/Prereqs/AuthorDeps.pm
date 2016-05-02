@@ -8,9 +8,12 @@ our $VERSION = '0.006';
 
 use Moose;
 use MooseX::Types::Moose qw( HashRef ArrayRef Str );
+use List::Util qw/min/;
 
 use Dist::Zilla::Util::AuthorDeps 5.021;
 use Dist::Zilla 4;
+
+use constant MAX_DZIL_VERSION => 5;
 
 with 'Dist::Zilla::Role::PrereqSource';
 
@@ -73,7 +76,7 @@ sub register_prereqs {
     my $phase    = $self->phase;
     my $relation = $self->relation;
 
-    my $authordeps = Dist::Zilla::Util::AuthorDeps::extract_author_deps( '.' );
+    my $authordeps = Dist::Zilla::Util::AuthorDeps::extract_author_deps('.');
 
     for my $req (@$authordeps) {
         my ( $mod, $version ) = each %$req;
@@ -83,7 +86,7 @@ sub register_prereqs {
 
     $zilla->register_prereqs(
         { phase => $phase, type => $relation },
-        "Dist::Zilla", int( Dist::Zilla->VERSION ),
+        "Dist::Zilla", min( MAX_DZIL_VERSION, int( Dist::Zilla->VERSION ) ),
     );
 
     return;
@@ -91,7 +94,7 @@ sub register_prereqs {
 
 1;
 
-=for Pod::Coverage mvp_multivalue_args register_prereqs
+=for Pod::Coverage mvp_multivalue_args register_prereqs MAX_DZIL_VERSION
 
 =head1 SYNOPSIS
 
