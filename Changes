@@ -2,6 +2,10 @@ Revision history for Dist-Zilla-Plugin-Prereqs-AuthorDeps
 
 {{$NEXT}}
 
+    [CHANGED]
+
+    - plugins that exist in the local build root are not added as prereqs.
+
 0.006     2016-05-02 11:06:55-04:00 America/New_York
 
     [CHANGED]

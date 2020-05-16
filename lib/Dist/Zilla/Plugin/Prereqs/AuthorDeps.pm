@@ -9,6 +9,7 @@ our $VERSION = '0.007';
 use Moose;
 use MooseX::Types::Moose qw( HashRef ArrayRef Str );
 use List::Util qw/min/;
+use Path::Tiny;
 
 use Dist::Zilla::Util::AuthorDeps 5.021;
 use Dist::Zilla 4;
@@ -81,6 +82,10 @@ sub register_prereqs {
     for my $req (@$authordeps) {
         my ( $mod, $version ) = each %$req;
         next if $self->_exclude_hash->{$mod};
+
+        (my $filename = $mod) =~ s{::}{/}g;
+        next if path($self->zilla->root, $filename.'.pm')->exists;
+
         $zilla->register_prereqs( { phase => $phase, type => $relation }, $mod, $version );
     }
 
